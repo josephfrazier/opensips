@@ -1,5 +1,7 @@
 FROM debian:jessie
 
+RUN sed -i 's#http://httpredir#ftp://ftp.us#g' /etc/apt/sources.list
+
 # package list derived from ./packaging/debian/control
 RUN apt-get clean && apt-get update && apt-get install -y \
       bison \
